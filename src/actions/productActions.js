@@ -28,9 +28,9 @@ import {
 export const listProducts = ( keyword = '', pageNumber= '', category) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
-    let link = `http://radianapp.herokuapp.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+    let link = `https://radianapp.herokuapp.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
   if(category) {
-    link = `http://radianapp.herokuapp.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
+    link = `https://radianapp.herokuapp.com/api/products?keyword=${keyword}&pageNumber=${pageNumber}&category=${category}`
   }
   
   
@@ -56,7 +56,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_DETAILS_REQUEST })
   
-      const { data } = await axios.get(`http://radianapp.herokuapp.com/api/products/${id}`)
+      const { data } = await axios.get(`https://radianapp.herokuapp.com/api/products/${id}`)
   
       dispatch({
         type: PRODUCT_DETAILS_SUCCESS,
@@ -89,7 +89,7 @@ export const listProductDetails = (id) => async (dispatch) => {
         },
       }
   
-      await axios.delete(`http://radianapp.herokuapp.com/api/products/${id}`, config)
+      await axios.delete(`https://radianapp.herokuapp.com/api/products/${id}`, config)
   
       dispatch({
         type: PRODUCT_DELETE_SUCCESS,
@@ -121,7 +121,7 @@ export const listProductDetails = (id) => async (dispatch) => {
         },
       }
   
-      const { data } = await axios.post(`http://radianapp.herokuapp.com/api/products`, {}, config)
+      const { data } = await axios.post(`https://radianapp.herokuapp.com/api/products`, {}, config)
   
       dispatch({
         type: PRODUCT_CREATE_SUCCESS,
@@ -156,7 +156,7 @@ export const listProductDetails = (id) => async (dispatch) => {
       }
   
       const { data } = await axios.put(
-        `http://radianapp.herokuapp.com/api/products/${product._id}`,
+        `https://radianapp.herokuapp.com/api/products/${product._id}`,
         product,
         config
       )
@@ -195,7 +195,7 @@ export const listProductDetails = (id) => async (dispatch) => {
         },
       }
   
-      await axios.post(`http://radianapp.herokuapp.com/api/products/${productId}/reviews`, review, config)
+      await axios.post(`https://radianapp.herokuapp.com/api/products/${productId}/reviews`, review, config)
   
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -215,7 +215,7 @@ export const listProductDetails = (id) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_TOP_REQUEST })
   
-      const { data } = await axios.get(`http://radianapp.herokuapp.com/api/products/top`)
+      const { data } = await axios.get(`https://radianapp.herokuapp.com/api/products/top`)
   
       dispatch({
         type: PRODUCT_TOP_SUCCESS,
